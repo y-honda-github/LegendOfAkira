@@ -7,5 +7,9 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/Library/Java/Extensions/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Library/Java/Extensions/basicplayer3.0.jar"/>
+	<classpathentry kind="lib" path="/Library/Java/Extensions/jl1.0.1.jar"/>
+	<classpathentry kind="lib" path="/Library/Java/Extensions/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="/Library/Java/Extensions/mp3plugin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

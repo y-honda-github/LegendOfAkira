@@ -11,13 +11,29 @@ import gnu.io.NoSuchPortException;
 import gnu.io.PortInUseException;
 import gnu.io.SerialPort;
 import gnu.io.UnsupportedCommOperationException;
+import javazoom.jlgui.basicplayer.BasicPlayerException;
 
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.MidiUnavailableException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, BasicPlayerException {
+		/*try {
+            BgmEngine.load("src/legendofakira/bgm.mid");
+        } catch (MidiUnavailableException e) {
+            e.printStackTrace();
+        } catch (InvalidMidiDataException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		BgmEngine.play(0);
+		*/
+		SoundTestWav wav = new SoundTestWav();
+		wav.loop();
 		GameFrame frame = new GameFrame();
 		Game game = new Game(frame);
 		frame.start_btn.addActionListener(new TimeAttackListener(game));
@@ -30,7 +46,6 @@ public class Main {
 		
 		try
 		{
-			System.out.println("lklk");
 			CommPortIdentifier portID = CommPortIdentifier.getPortIdentifier("/dev/tty.usbserial-A8005A4S");
 			SerialPort port = (SerialPort)portID.open("Sample", 5000); //waiting5000ms
 		       
@@ -51,7 +66,7 @@ public class Main {
 					frame.img[1]= new ImageIcon("src/legendofakira/img/story6.png");
 					//game.setScene(img);
 				}
-				System.out.println("okok");
+				//System.out.println("okok");
 			}
 			
 			is.close();
@@ -70,6 +85,11 @@ public class Main {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+
+	private static BgmEngine BgmEngine(String string) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
