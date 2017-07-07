@@ -33,16 +33,16 @@ public class Main {
 		BgmEngine.play(0);
 		*/
 		SoundTestWav wav = new SoundTestWav();
-		wav.loop();
 		GameFrame frame = new GameFrame();
 		Game game = new Game(frame);
 		frame.start_btn.addActionListener(new TimeAttackListener(game));
 		frame.setVisible(true);
 		int o=0;
-		while(game.state == Game.STAGE0) {
+		while(game.state == Game.STATE0) {
 			System.out.print("");
 		}
 		game.start();
+		wav.loop();
 		
 		try
 		{
@@ -55,19 +55,21 @@ public class Main {
 			InputStream is = port.getInputStream();
 			
 			int c;
+			System.out.println("okok");
 			while((c = is.read()) != -1){
 				System.out.print((char)c);
 				ImageIcon img[] = new ImageIcon[2];
-				if(game.state == Game.STAGE1) {
+				if(game.state == Game.STATE1) {
 					frame.img[0]= new ImageIcon("src/legendofakira/img/story3.png");
 					frame.img[1]= new ImageIcon("src/legendofakira/img/story4.png");
-				}else if(game.state == Game.STAGE2) {
+				}else if(game.state == Game.STATE2) {
 					frame.img[0]= new ImageIcon("src/legendofakira/img/story5.png");
 					frame.img[1]= new ImageIcon("src/legendofakira/img/story6.png");
 					//game.setScene(img);
 				}
 				//System.out.println("okok");
 			}
+			System.out.println("okok");
 			
 			is.close();
 			port.close();

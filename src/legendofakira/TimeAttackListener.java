@@ -13,7 +13,7 @@ public class TimeAttackListener implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 	    /* 処理したい内容をここに記述する */
 		System.out.println("ok");
-		//game.frame.start_btn.setEnabled(false);
-		game.state = Game.STAGE1;
+		game.frame.start_btn.setEnabled(false);
+		game.state = Game.STATE1;
 	  }
 }
