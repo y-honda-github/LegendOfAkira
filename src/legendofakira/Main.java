@@ -21,8 +21,9 @@ import javax.swing.JFrame;
 public class Main {
 
 	public static void main(String[] args) throws IOException, BasicPlayerException {
-		/*try {
-            BgmEngine.load("src/legendofakira/bgm.mid");
+		/*
+		 * try {
+		 * BgmEngine.load("src/legendofakira/bgm.mid");
         } catch (MidiUnavailableException e) {
             e.printStackTrace();
         } catch (InvalidMidiDataException e) {
@@ -32,17 +33,17 @@ public class Main {
         }
 		BgmEngine.play(0);
 		*/
-		SoundTestWav wav = new SoundTestWav();
+		SoundTestWav bgm = new SoundTestWav("bgm.wav");
+		SoundTestWav find = new SoundTestWav("find.wab");
 		GameFrame frame = new GameFrame();
 		Game game = new Game(frame);
 		frame.start_btn.addActionListener(new TimeAttackListener(game));
 		frame.setVisible(true);
-		int o=0;
 		while(game.state == Game.STATE0) {
 			System.out.print("");
 		}
 		game.start();
-		wav.loop();
+		bgm.loop();
 		
 		try
 		{
@@ -60,14 +61,27 @@ public class Main {
 				System.out.print((char)c);
 				ImageIcon img[] = new ImageIcon[2];
 				if(game.state == Game.STATE1) {
+					//オムツ見つけた
+					bgm.stop();
 					frame.img[0]= new ImageIcon("src/legendofakira/img/story3.png");
 					frame.img[1]= new ImageIcon("src/legendofakira/img/story4.png");
+					bgm.loop();
 				}else if(game.state == Game.STATE2) {
+					//おしゃぶり見つけた
+					bgm.stop();
 					frame.img[0]= new ImageIcon("src/legendofakira/img/story5.png");
 					frame.img[1]= new ImageIcon("src/legendofakira/img/story6.png");
-					//game.setScene(img);
+					bgm.loop();
+				}else if(game.state == Game.STATE3) {
+					//哺乳瓶を見つけた
+					bgm.stop();
+					frame.img[0]= new ImageIcon("src/legendofakira/img/story5.png");
+					frame.img[1]= new ImageIcon("src/legendofakira/img/story6.png");
+					
+				}else if(game.state == Game.STATE4) {
+					frame.img[0]= new ImageIcon("src/legendofakira/img/story5.png");
+					frame.img[1]= new ImageIcon("src/legendofakira/img/story6.png");
 				}
-				//System.out.println("okok");
 			}
 			System.out.println("okok");
 			

@@ -20,13 +20,14 @@ public class Game {
 	public Game(GameFrame frame) {
 		// TODO Auto-generated constructor stub
 		this.frame = frame;
-		state = 0;
+		state = Game.STATE0;
 	}
 
 	public void start() {
 		frame.img[0]= new ImageIcon("src/legendofakira/img/story1.png");
 		frame.img[1]= new ImageIcon("src/legendofakira/img/story2.png");
 		frame.time.start();
+		frame.textPane.setText("アツシ は オムツ を さがして いる");
 		state = Game.STATE1;
 		
 	}

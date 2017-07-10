@@ -5,11 +5,10 @@ import java.applet.*;
 public class SoundTestWav {
 	 private AudioClip clip;
 		
-	    public SoundTestWav(){
+	    public SoundTestWav(String wav){
 	        //音源の読み込み
 	    		//clip = AudioClip
-	        clip = Applet.newAudioClip(getClass().getResource("bgm.wav"));
-			//clip.loop();	//音源の再生
+	        clip = Applet.newAudioClip(getClass().getResource(wav));
 	    }
 		
 	    public void loop() {
