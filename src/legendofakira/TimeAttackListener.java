@@ -15,5 +15,10 @@ public class TimeAttackListener implements ActionListener{
 		System.out.println("ok");
 		game.frame.start_btn.setEnabled(false);
 		game.state = Game.STATE1;
+		game.flg = 1;
+		game.opening.stop();
+		game.start();
+		game.bgm.loop();
+		
 	  }
 }

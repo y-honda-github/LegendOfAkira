@@ -28,6 +28,7 @@ public class GameFrame extends JFrame implements ActionListener{
 	
 	ImageIcon img[] = new ImageIcon[2];
     Timer time;
+    Timer find;
     int currFrame;
 	public GameFrame() {
 		// TODO Auto-generated constructor stub
@@ -63,7 +64,13 @@ public class GameFrame extends JFrame implements ActionListener{
 	    contentPane.add(p);
 	    currFrame = 0;
         time = new Timer(500, this);
+        find = new Timer(350, this);
         
+	}
+	
+	public void setEnding() {
+		img[0]= new ImageIcon("src/legendofakira/img/ending.png");
+		label.setIcon(img[0]);
 	}
 	
 	public void actionPerformed(ActionEvent e){
@@ -74,6 +81,12 @@ public class GameFrame extends JFrame implements ActionListener{
 				label.setIcon(img[currFrame]);//ここで画像を設定しています。(ImageIconに画像のパスを渡します。)
 	            repaint();
 	        }
+	    	}else if (source == find) {
+	    		if (isShowing()){
+					currFrame = (++currFrame) % 2;	
+					label.setIcon(img[currFrame]);//ここで画像を設定しています。(ImageIconに画像のパスを渡します。)
+		            repaint();
+		        }
 	    	}
 	}
 	
