@@ -9,6 +9,7 @@ public class Game {
 	GameFrame frame;
 	SoundTestWav opening = new SoundTestWav("opening.wav");
 	SoundTestWav bgm = new SoundTestWav("bgm.wav");
+	SoundTestWav ending = new SoundTestWav("ending.wav");
 	long start;
 	long end;
 	int state;
@@ -93,6 +94,7 @@ public class Game {
 		frame.find.stop();
 		frame.setEnding();
 		frame.textPane.setText("ジグビ の ぼうけん は つづく...\n"+frame.textPane.getText());
+		ending.loop();
 	}
 	
 	public void setScene(ImageIcon img[]){

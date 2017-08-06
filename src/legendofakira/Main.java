@@ -22,26 +22,15 @@ public class Main {
 
 	public static void main(String[] args) throws IOException, BasicPlayerException {
 		
-		try{
-			Thread.sleep(3000); //3000ミリ秒Sleepする
-			}catch(InterruptedException e){}
-		
-		//SoundTestWav opening = new SoundTestWav("opening.wav");
-		//SoundTestWav bgm = new SoundTestWav("bgm.wav");
-		
-		//SoundTestWav find = new SoundTestWav("find.wab");
 		GameFrame frame = new GameFrame();
 		Game game = new Game(frame);
 		frame.start_btn.addActionListener(new TimeAttackListener(game));
 		frame.setVisible(true);
 		game.opening.loop();
-		//opening.loop();
+		
 		//while(game.state == Game.STATE0) {
 		//	System.out.print("");
 		//}
-		//opening.stop();
-		//game.start();
-		//bgm.loop();
 		
 		try
 		{
@@ -56,8 +45,11 @@ public class Main {
 			int c;
 			
 			while((c = is.read()) != -1){
+			//while(true) {
 				System.out.print((char)c);
-				
+				//try{
+				//	Thread.sleep(10000); //3000ミリ秒Sleepする
+				//	}catch(InterruptedException e){}
 				if((char)c == '^') {
 					ImageIcon img[] = new ImageIcon[2];
 					if(game.state == Game.STATE1) {
@@ -80,8 +72,7 @@ public class Main {
 						
 					}else if(game.state == Game.STATE4) {
 						break;
-						//frame.img[0]= new ImageIcon("src/legendofakira/img/story5.png");
-						//frame.img[1]= new ImageIcon("src/legendofakira/img/story6.png");
+						
 					}else {
 						break;
 					}
